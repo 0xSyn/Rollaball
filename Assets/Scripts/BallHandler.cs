@@ -56,11 +56,17 @@ public class BallHandler : MonoBehaviour {
         else if (other.gameObject.CompareTag("Spikes")) {
             sfx.clip = aud_dmg;
             sfx.Play();
-           
+            rb.velocity = new Vector3(0, 0, 0);
+            transform.position = new Vector3(0, 10, 0);
         }
     }
-
-	void setCountText() {
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.CompareTag("Bounds")) {
+            transform.position = new Vector3(0, 10, 0);
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+    }
+        void setCountText() {
 		countText.text = "Score: " + count.ToString();
 		if(count>=12) {
 			winText.text="You win!";

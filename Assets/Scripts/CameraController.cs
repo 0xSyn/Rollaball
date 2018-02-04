@@ -5,14 +5,19 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	public GameObject player;
-
 	private Vector3 offset;
+    public AudioClip aud_bgm_0;
+    //private AudioSource sfx;
 
-	// Use this for initialization
-	void Start () {
+    void Awake() {
+        //sfx = GetComponent<AudioSource>();
+        
+    }
+    // Use this for initialization
+    void Start () {
 		offset = transform.position - player.transform.position;
-
-	}
+        //sfx.Play();
+    }
 	
 	// Update is called once per frame
 	void LateUpdate () {
